@@ -58,16 +58,10 @@ outfitForm.addEventListener('submit', async (e) => {
         return;
     }
 
-    const apiKey = document.getElementById('apiKey').value.trim();
     const weight = document.getElementById('weight').value;
     const height = document.getElementById('height').value;
     const city = document.getElementById('city').value.trim();
     const travelDate = document.getElementById('travelDate').value;
-
-    if (!apiKey) {
-        alert('Please enter your OpenAI API Key.');
-        return;
-    }
 
     setLoading(true);
 
@@ -85,16 +79,9 @@ Consider the weather, culture, and typical activities for ${city} around ${trave
         const formData = new FormData();
         formData.append('image', selectedFile);
         formData.append('prompt', prompt);
-        formData.append('model', 'gpt-image-1');
-        formData.append('n', '1');
-        formData.append('size', '1024x1024');
-        formData.append('quality', 'auto');
 
-        const response = await fetch('https://api.openai.com/v1/images/edits', {
+        const response = await fetch('/api/generate', {
             method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-            },
             body: formData,
         });
 
