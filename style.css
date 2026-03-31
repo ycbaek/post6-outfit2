@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    background: linear-gradient(135deg, #f093fb, #f5576c, #fda085);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #999;
+    font-size: 1rem;
+}
+
+#outfitForm {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    backdrop-filter: blur(10px);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 28px;
+}
+
+.upload-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    height: 100%;
+    min-height: 280px;
+    cursor: pointer;
+    transition: border-color 0.3s, background 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.upload-area:hover {
+    border-color: #f5576c;
+    background: rgba(245, 87, 108, 0.05);
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #777;
+}
+
+.upload-placeholder small {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.inputs-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: #aaa;
+    font-weight: 500;
+}
+
+.input-group input {
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #f5576c;
+}
+
+.input-group input::placeholder {
+    color: #555;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+button[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.result-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.result-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    color: #f5576c;
+}
+
+.result-images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    flex: 1;
+    max-width: 340px;
+}
+
+.result-card h3 {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 12px;
+}
+
+.result-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.result-arrow {
+    font-size: 2rem;
+    color: #f5576c;
+}
+
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-area {
+        min-height: 200px;
+    }
+
+    .result-images {
+        flex-direction: column;
+    }
+
+    .result-arrow {
+        transform: rotate(90deg);
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+}

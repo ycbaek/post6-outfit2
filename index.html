@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Outfit Recommender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Travel Outfit Recommender</h1>
+            <p class="subtitle">Upload your photo and get personalized outfit suggestions for your trip</p>
+        </header>
+
+        <form id="outfitForm">
+            <div class="form-grid">
+                <div class="upload-section">
+                    <label for="photoInput" class="upload-area" id="uploadArea">
+                        <div class="upload-placeholder" id="uploadPlaceholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            <span>Upload your photo</span>
+                            <small>JPG, PNG up to 10MB</small>
+                        </div>
+                        <img id="previewImage" class="preview-image hidden" alt="Preview">
+                    </label>
+                    <input type="file" id="photoInput" accept="image/jpeg,image/png" hidden>
+                </div>
+
+                <div class="inputs-section">
+                    <div class="input-group">
+                        <label for="apiKey">OpenAI API Key</label>
+                        <input type="password" id="apiKey" placeholder="sk-..." required>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" placeholder="85" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="height">Height (cm)</label>
+                            <input type="number" id="height" placeholder="173" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="city">Destination City</label>
+                        <input type="text" id="city" placeholder="Seattle" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="travelDate">Travel Date</label>
+                        <input type="date" id="travelDate" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn">
+                <span class="btn-text">Get Outfit Recommendation</span>
+                <span class="btn-loading hidden">
+                    <span class="spinner"></span>
+                    Generating...
+                </span>
+            </button>
+        </form>
+
+        <div id="resultSection" class="result-section hidden">
+            <h2>Your Recommended Outfit</h2>
+            <div class="result-images">
+                <div class="result-card">
+                    <h3>Your Photo</h3>
+                    <img id="originalImage" alt="Original photo">
+                </div>
+                <div class="result-arrow">&#10132;</div>
+                <div class="result-card">
+                    <h3>Recommended Outfit</h3>
+                    <img id="resultImage" alt="Outfit recommendation">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
